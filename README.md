@@ -27,3 +27,29 @@ OR produto.codigo = "13881"
  
  SELECT *FROM produto
  WHERE produto.id_produto NOT IN (1049)
+ 
+ SELECT *FROM categoria 
+CREATE TABLE categoria(id INT NOT NULL AUTO_INCREMENT, nome VARCHAR(255),endereco VARCHAR(55),idade INT, PRIMARY KEY (id))  
+INSERT INTO categoria (nome,endereco,idade) VALUES ("Jean","são paulo","40")
+DELETE FROM categoria WHERE id = "2"
+
+ALTER TABLE produto ADD PRIMARY KEY(id_produto) 
+
+ALTER TABLE produto ADD id_categoria INT 
+
+ALTER TABLE produto ADD FOREIGN KEY (id_categoria) REFERENCES categoria(id);
+
+SELECT*FROM produto WHERE nome LIKE "teste%"
+
+ALTER TABLE produto ADD COLUMN (id_categoria int)
+
+TRUNCATE TABLE produto
+
+SELECT * FROM produto
+INNER JOIN categoria
+ON produto.id_categoria = categoria.id;
+
+CREATE TABLE agencia (codigoage INT NOT NULL AUTO_INCREMENT, NomeAg VARCHAR(45),cidadeAg VARCHAR(55), PRIMARY KEY (codigoAge));  
+CREATE TABLE cliente (codigocli INT NOT NULL AUTO_INCREMENT, codcliente VARCHAR(45), VARCHAR(55), PRIMARY KEY (codigocli));  
+
+
