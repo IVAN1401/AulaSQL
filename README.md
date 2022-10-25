@@ -50,6 +50,58 @@ INNER JOIN categoria
 ON produto.id_categoria = categoria.id;
 
 CREATE TABLE agencia (codigoage INT NOT NULL AUTO_INCREMENT, NomeAg VARCHAR(45),cidadeAg VARCHAR(55), PRIMARY KEY (codigoAge));  
-CREATE TABLE cliente (codigocli INT NOT NULL AUTO_INCREMENT, codcliente VARCHAR(45), VARCHAR(55), PRIMARY KEY (codigocli));  
+CREATE TABLE cliente (codigocli INT NOT NULL AUTO_INCREMENT, codcliente VARCHAR(45), VARCHAR(55), PRIMARY KEY (codigocli)); 
+
+exercicio 02
+
+
+CREATE TABLE agencias (CodigoAg INT NOT NULL AUTO_INCREMENT, NomeAg VARCHAR (45), CidadeAg VARCHAR (45), PRIMARY KEY (CodigoAg))
+
+CREATE TABLE clientes ( CodigoCli INT NOT NULL AUTO_INCREMENT, Nome VARCHAR(45), Rua VARCHAR(45), Cidade VARCHAR (45), CodigoAg INT, PRIMARY KEY (CodigoCli))
+
+CREATE TABLE depositos (NumeroCont INT NOT NULL AUTO_INCREMENT, Saldo DOUBLE, CodigoAg INT, CodigoCli INT, PRIMARY KEY (NumeroCont))
+
+CREATE TABLE emprestimos (NumeroEmp INT NOT NULL AUTO_INCREMENT, Quantia DOUBLE, CodigoAg INT, CodigoCli INT, PRIMARY KEY (NumeroEmp))
+
+ALTER TABLE clientes ADD FOREIGN KEY(CodigoAg) REFERENCES agencias(CodigoAg);
+
+ALTER TABLE depositos ADD FOREIGN KEY (CodigoAg) REFERENCES agencias(codigoAg);
+
+ALTER TABLE depositos ADD FOREIGN KEY (CodigoCli) REFERENCES clientes(CodigoCli);
+
+ALTER TABLE emprestimos ADD FOREIGN KEY (CodigoCli) REFERENCES clientes (CodigoCli);
+
+ALTER TABLE emprestimos ADD FOREIGN KEY (CodigoAg) REFERENCES agencias (CodigoAg);
+
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Almirante Tamandaré")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Bancopr", "Altamira do Parana")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("BNE", "Amaporã")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("BBB", "Andirá")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("BCI", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("BPA","Arapoti")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("BMM", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+INSERT INTO agencias (Nomeag,Cidadeag) VALUES ("Basa", "Arapongas")
+
+INSERT INTO clientes (Nome, rua, cidade) VALUES ("João","centro","Arapongas")
+
+INSERT INTO depositos(Saldo,codigoAg,codigoCli) VALUES (500.00,1,01)
+
+INSERT INTO emprestimos(Quantia,codigoAg,codigoCli) VALUES (1.000,1,1)
+
+
 
 
